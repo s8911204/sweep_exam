@@ -48,6 +48,3 @@ def search_and_replace_in_docs(directory, old_string, new_string):
 rename_file_in_directory('.', 'sweep.yaml', 'sweep-config.yaml')
 search_and_replace_in_files('.', 'sweep.yaml', 'sweep-config.yaml')
 search_and_replace_in_docs('.', 'sweep.yaml', 'sweep-config.yaml')
-
-rename_file_in_directory('.', 'sweep.yaml', 'sweep-config.yaml')
-search_and_replace_in_files('.', 'sweep.yaml', 'sweep-config.yaml')
