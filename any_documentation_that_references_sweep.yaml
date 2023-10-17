@@ -1,5 +1,11 @@
 import os
 
+def rename_file(old_filename, new_filename):
+    if os.path.exists(old_filename):
+        os.rename(old_filename, new_filename)
+    else:
+        print(f"The file {old_filename} does not exist.")
+
 def replace_string_in_file(file_path, old_string, new_string):
     with open(file_path, 'r') as file:
         file_data = file.read()
@@ -16,4 +22,5 @@ def search_and_replace_in_docs(directory, old_string, new_string):
                 file_path = os.path.join(foldername, filename)
                 replace_string_in_file(file_path, old_string, new_string)
 
+rename_file('sweep.yaml', 'sweep-config.yaml')
 search_and_replace_in_docs('.', 'sweep.yaml', 'sweep-config.yaml')
