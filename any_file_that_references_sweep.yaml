@@ -1,11 +1,16 @@
 import os
 
 def rename_file_in_directory(directory, old_filename, new_filename):
+    file_exists = False
     for foldername, subfolders, filenames in os.walk(directory):
         for filename in filenames:
             if filename == old_filename:
+                file_exists = True
                 old_file_path = os.path.join(foldername, filename)
                 new_file_path = os.path.join(foldername, new_filename)
                 os.rename(old_file_path, new_file_path)
+    if not file_exists:
+        print(f"The file {old_filename} does not exist in the directory {directory}.")
+        return
 
 rename_file_in_directory('.', 'sweep.yaml', 'sweep-config.yaml')
