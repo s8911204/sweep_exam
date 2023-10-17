@@ -1,0 +1,18 @@
+import os
+
+def replace_string_in_file(file_path, old_string, new_string):
+    with open(file_path, 'r') as file:
+        file_data = file.read()
+
+    file_data = file_data.replace(old_string, new_string)
+
+    with open(file_path, 'w') as file:
+        file.write(file_data)
+
+def search_and_replace_in_files(directory, old_string, new_string):
+    for foldername, subfolders, filenames in os.walk(directory):
+        for filename in filenames:
+            file_path = os.path.join(foldername, filename)
+            replace_string_in_file(file_path, old_string, new_string)
+
+search_and_replace_in_files('.', 'sweep.yaml', 'sweep-config.yaml')
